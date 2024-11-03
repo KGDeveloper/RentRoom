@@ -2,8 +2,8 @@ import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from '@o
 import { anyObject, AnyObject } from '../../models/HttpModel'
 
 const request = axios.create({
-  baseURL: 'http://192.168.0.52:6060',
-  timeout: 10000,
+  baseURL: 'http://192.168.1.102:6060',
+  timeout: 1000,
   headers: {}
 })
 
@@ -16,12 +16,14 @@ request.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 })
 
 request.interceptors.response.use((response: AxiosResponse) => {
+  console.log(`-----------------------请求成功:${response.data.code}`)
   if (response.data.code === 200) {
     return response.data.data
   } else {
     return Promise.reject(response.data.message)
   }
 }, (error: AxiosError) => {
+  console.log(`-----------------------请求失败:${error.message}`)
   return Promise.reject(error.message)
 })
 

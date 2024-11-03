@@ -8,6 +8,7 @@ import { My } from './My'
 @Component
 struct Index {
   @State currentTabBarIndex: number = 0;
+  @StorageProp('') bottomHeight: number = 0
 
   @Builder
   tabBarBuilder(image: Resource, activeImage: Resource, text: string, index: number) {

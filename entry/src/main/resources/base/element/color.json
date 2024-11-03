@@ -47,6 +47,10 @@
     {
       "name": "indicator_color",
       "value": "#CCCBCB"
+    },
+    {
+      "name": "color_b3b3b3",
+      "value": "#B3B3B3"
     }
   ]
 }
